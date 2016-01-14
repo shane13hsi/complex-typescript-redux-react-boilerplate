@@ -1,6 +1,6 @@
 var webpack = require('webpack');
-var HtmlWebpackPlugin = require('html-webpack-plugin');
-var H = require('./webpack.helper.js');
+var H = require('./webpack/webpack-helper.js');
+var HtmlPlugin = require('./webpack/html-plugin.js');
 
 var path = require('path');
 
@@ -25,5 +25,6 @@ module.exports = {
   },
 
   plugins: [
+    new HtmlPlugin()
   ]
 };
