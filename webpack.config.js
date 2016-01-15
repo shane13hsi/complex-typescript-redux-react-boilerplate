@@ -7,24 +7,27 @@ var path = require('path');
 module.exports = {
   devtool: 'eval',
 
-  entry: ['./src/index.jsx'],
+  entry: {
+    'app-lietou': './src/apps/lietou/index',
+    'app-zhaopin-menhu': './src/apps/zhaopin-menhu/index',
+  },
 
   output: {
-    filename: 'bundle.js',
-    path: path.resolve('./dist')
+    path: path.resolve('./dist'),
+    filename: '[name].js',
   },
 
   module: {
     loaders: [
-      H['babel']()
+      H['babel'](),
     ]
   },
 
   resolve: {
-    extensions: ['', '.js', '.jsx']
+    extensions: ['', '.js', '.jsx'],
   },
 
   plugins: [
-    new HtmlPlugin()
+    new HtmlPlugin(),
   ]
 };
