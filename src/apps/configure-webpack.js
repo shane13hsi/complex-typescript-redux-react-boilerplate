@@ -1,7 +1,7 @@
 var webpack = require('webpack');
 var H = require('../webpack/webpack-helper.js');
 var HtmlPlugin = require('../webpack/html-plugin.js');
-var config = require('../../project-config');
+var projectConfig = require('../../project-config');
 
 var path = require('path');
 
@@ -9,6 +9,7 @@ var path = require('path');
  * @param devtool
  * @param entry
  * @param outputPath
+ * @param filename
  *
  * */
 module.exports = function(options) {
@@ -17,14 +18,14 @@ module.exports = function(options) {
 
     entry: function() {
       return options.entry
-    },
+    }(),
 
     output: function() {
       return {
         path: options.outputPath,
-        filename: '[name].js'
+        filename: options.filename
       }
-    },
+    }(),
 
     module: {
       loaders: [
@@ -34,7 +35,7 @@ module.exports = function(options) {
 
     resolve: {
       alias: {
-        'components': path.join(config.src, 'components')
+        'components': path.join(projectConfig.src, 'components')
       },
       extensions: ['', '.js', '.jsx']
     },

@@ -1,6 +1,7 @@
 var path = require('path');
 
 module.exports = {
-  src: path.join('src'),
-  dist: path.join('dist')
+  src: path.join(__dirname, 'src'),
+  apps: path.join(__dirname, 'src/apps'),
+  dist: path.join(__dirname, 'dist')
 };
