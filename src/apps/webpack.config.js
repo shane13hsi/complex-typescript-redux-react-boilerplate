@@ -6,7 +6,7 @@ var path = require('path');
 var argv = require('yargs').argv;
 
 if (argv.app === undefined) {
-  throw new Error('请指定要编译的应用名称, 如: npm run build -- --app=<app-name>');
+  throw new Error('请指定应用名称, 格式: npm run build -- --app=<app-name>');
 }
 
 var isProd = process.env.NODE_ENV === 'production';
@@ -41,7 +41,7 @@ module.exports = {
 
   resolve: {
     alias: {
-      'components': path.join(projectConfig.src, 'components')
+      'rill-component': path.join(projectConfig.src, 'rill-component')
     },
     extensions: ['', '.js', '.jsx']
   },
