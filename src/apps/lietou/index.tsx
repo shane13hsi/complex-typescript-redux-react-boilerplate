@@ -1,17 +1,9 @@
 /// <reference path="../../../typings/ttsd.d.ts" />
 
 import * as React from 'react';
-import { App } from 'components/App';
+import * as ReactDOM from 'react-dom';
+import { App } from './App';
 
-export class Index extends React.Component<{}, {}> {
-
-  render() {
-    return (
-      <div>
-        <h1>Lietou</h1>
-        <App/>
-      </div>
-    );
-  }
-
-}
+ReactDOM.render(
+  React.createElement(App),
+  document.getElementById('__REACT__'));
