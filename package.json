@@ -4,10 +4,9 @@
   "description": "",
   "main": "",
   "scripts": {
-    "zhaopin-menhu:clean": "rm -rf dist/zhaopin-menhu",
-    "zhaopin-menhu:test": "npm run zhaopin-menhu:build",
-    "zhaopin-menhu:dev": "",
-    "zhaopin-menhu:build": "npm run zhaopin-menhu:clean && webpack --config src/apps/zhaopin-menhu/webpack-prod.config.js"
+    "clean": "rm -rf dist/",
+    "test": "npm run build:dev",
+    "build:dev": "npm run clean && webpack --config src/apps/webpack.config.js"
   },
   "repository": {
     "type": "git",
@@ -22,6 +21,8 @@
     "babel-preset-es2015": "^6.3.13",
     "babel-preset-react": "^6.3.13",
     "babel-preset-react-hmre": "^1.0.1",
+    "bluebird": "^3.1.1",
+    "blueimp-tmpl": "^3.1.0",
     "css-loader": "^0.23.1",
     "express": "^4.13.3",
     "extract-text-webpack-plugin": "^0.8.0",
@@ -37,7 +38,8 @@
     "webpack": "^1.9.10",
     "webpack-dev-middleware": "^1.4.0",
     "webpack-dev-server": "^1.9.0",
-    "webpack-hot-middleware": "^2.6.0"
+    "webpack-hot-middleware": "^2.6.0",
+    "yargs": "^3.31.0"
   },
   "dependencies": {
     "classnames": "^2.2.1",
