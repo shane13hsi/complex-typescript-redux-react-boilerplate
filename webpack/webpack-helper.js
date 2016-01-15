@@ -1,3 +1,5 @@
+"use strict";
+
 module.exports = {
   'babel': function() {
     return {test: /\.jsx?$/, loader: 'babel', exclude: /node_modules/};
