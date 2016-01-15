@@ -1,10 +1,13 @@
 var webpack = require('webpack');
 var H = require('../webpack/webpack-helper.js');
-var HtmlPlugin = require('../webpack/html-plugin.js');
 var projectConfig = require('../../project-config');
 
 var path = require('path');
 var argv = require('yargs').argv;
+
+if (argv.app === undefined) {
+  throw new Error('请指定要编译的应用名称, 如: npm run build -- --app=<app-name>');
+}
 
 var isProd = process.env.NODE_ENV === 'production';
 var isHot = argv.hot !== undefined;
@@ -46,10 +49,9 @@ module.exports = {
     if (isHot) {
       return [
         new webpack.HotModuleReplacementPlugin(),
-        new HtmlPlugin()
       ]
     } else {
-      return [new HtmlPlugin()];
+      return [];
     }
   }()
 };
