@@ -7,13 +7,13 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 };
 import * as React from 'react';
 import { routeNode } from 'react-router5';
-export let Inbox = class extends React.Component {
+export let Compose = class extends React.Component {
     render() {
         return (<div>
-        <h1>Inbox</h1>
+        <h1>Compose</h1>
       </div>);
     }
 };
-Inbox = __decorate([
-    routeNode('inbox')
-], Inbox);
+Compose = __decorate([
+    routeNode('compose')
+], Compose);
