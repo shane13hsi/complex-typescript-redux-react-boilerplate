@@ -6,7 +6,9 @@
   "scripts": {
     "clean": "rm -rf dist/",
     "test": "npm run build:dev",
-    "build:dev": "npm run clean && webpack --config src/apps/webpack.config.js"
+    "build": "npm run clean && NODE_ENV=production webpack --config src/apps/webpack.config.js",
+    "build:dev": "npm run clean && webpack --config src/apps/webpack.config.js",
+    "start": "node src/apps/dev-server.js"
   },
   "repository": {
     "type": "git",

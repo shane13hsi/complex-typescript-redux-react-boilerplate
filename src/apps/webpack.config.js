@@ -7,17 +7,26 @@ var path = require('path');
 var argv = require('yargs').argv;
 
 var isProd = process.env.NODE_ENV === 'production';
+var isHot = argv.hot !== undefined;
 
 module.exports = {
   devtool: isProd ? false : 'eval',
 
   entry: function() {
-    return path.join(projectConfig.apps, argv.app, 'index.jsx')
+    var entryPath = path.join(projectConfig.apps, argv.app, 'index.jsx');
+    if (isHot) {
+      return [
+        'webpack-hot-middleware/client', entryPath
+      ];
+    } else {
+      return entryPath;
+    }
   }(),
 
   output: {
     path: path.join(projectConfig.dist, argv.app),
-    filename: 'bundle.js'
+    filename: 'bundle.js',
+    publicPath: '/static'
   },
 
   module: {
@@ -33,8 +42,14 @@ module.exports = {
     extensions: ['', '.js', '.jsx']
   },
 
-  plugins: [
-    new HtmlPlugin()
-  ]
+  plugins: function() {
+    if (isHot) {
+      return [
+        new webpack.HotModuleReplacementPlugin(),
+        new HtmlPlugin()
+      ]
+    } else {
+      return [new HtmlPlugin()];
+    }
+  }()
 };
-
