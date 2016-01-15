@@ -1,5 +1,12 @@
 /// <reference path="../../../typings/ttsd.d.ts" />
-import * as React from 'react';
+require('./styles/global.css');
+var React = require('react');
 import * as ReactDOM from 'react-dom';
-import { App } from './App';
-ReactDOM.render(React.createElement(App), document.getElementById('__REACT__'));
+import { RouterProvider } from 'react-router5';
+import router from './router';
+import { App } from './routes/App';
+router.start(() => {
+    ReactDOM.render(<RouterProvider router={router}>
+      <App />
+    </RouterProvider>, document.getElementById('__REACT__'));
+});

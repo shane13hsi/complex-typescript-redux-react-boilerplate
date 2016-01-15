@@ -34,7 +34,8 @@ module.exports = {
 
   module: {
     loaders: [
-      H['babel']({hot: isHot})
+      H['babel']({hot: isHot}),
+      H['css']({include: path.join(projectConfig.apps, argv.app, 'styles')}),
     ]
   },
 
