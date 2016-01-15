@@ -1,20 +1,31 @@
 "use strict";
 
 module.exports = {
-  'babel': function() {
-    return {test: /\.jsx?$/, loader: 'babel', exclude: /node_modules/};
+  'babel': function(option) {
+    if (option.hot) {
+      return {
+        test: /\.jsx?$/,
+        loader: 'babel',
+        query: {
+          "presets": ["react-hmre"]
+        },
+        exclude: /node_modules/
+      };
+    } else {
+      return {test: /\.jsx?$/, loader: 'babel', exclude: /node_modules/};
+    }
   },
-  'css-modules': function(config) {
+  'css-modules': function(option) {
     return {
       test: /\.css$/,
-      include: config.include,
+      include: option.include,
       loader: 'style!css?modules&importLoaders=1&localIdentName=[name]__[local]___[hash:base64:5]!postcss'
     }
   },
-  'css': function(config) {
+  'css': function(option) {
     return {
       test: /\.css$/,
-      include: config.include,
+      include: option.include,
       loader: 'style!css!postcss'
     }
   }
