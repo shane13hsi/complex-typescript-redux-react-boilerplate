@@ -1,6 +1,7 @@
 var webpack = require('webpack');
 var H = require('../webpack/webpack-helper.js');
 var HtmlPlugin = require('../webpack/html-plugin.js');
+var config = require('../../project-config');
 
 var path = require('path');
 
@@ -21,22 +22,25 @@ module.exports = function(options) {
     output: function() {
       return {
         path: options.outputPath,
-        filename: '[name].js',
+        filename: '[name].js'
       }
     },
 
     module: {
       loaders: [
-        H['babel'](),
+        H['babel']()
       ]
     },
 
     resolve: {
-      extensions: ['', '.js', '.jsx'],
+      alias: {
+        'components': path.join(config.src, 'components')
+      },
+      extensions: ['', '.js', '.jsx']
     },
 
     plugins: [
-      new HtmlPlugin(),
+      new HtmlPlugin()
     ]
   };
 
