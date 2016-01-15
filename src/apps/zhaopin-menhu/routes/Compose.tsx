@@ -2,6 +2,7 @@
 
 import * as React from 'react';
 import { routeNode } from 'react-router5';
+import { Typeahead } from 'rill-component/Typeahead/Typeahead';
 
 @routeNode('compose')
 export class Compose extends React.Component<{}, {}> {
@@ -10,6 +11,7 @@ export class Compose extends React.Component<{}, {}> {
     return (
       <div>
         <h1>Compose</h1>
+        <Typeahead/>
       </div>
     );
   }

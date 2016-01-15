@@ -36,6 +36,13 @@ module.exports = {
     loaders: [
       H['babel']({hot: isHot}),
       H['css']({include: path.join(projectConfig.apps, argv.app, 'styles')}),
+      H['css-modules']({
+        include: [
+          path.join(projectConfig.apps, argv.app, 'routes'),
+          path.join(projectConfig.apps, argv.app, 'components'),
+          path.join(projectConfig.src, 'rill-component')
+        ]
+      }),
     ]
   },
 
