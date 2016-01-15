@@ -1,0 +1,6 @@
+{
+  "name": "lietou",
+  "description": "猎头管理",
+  "version": "0.0.1",
+  "main": "./index.jsx"
+}

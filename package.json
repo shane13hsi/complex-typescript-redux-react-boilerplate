@@ -4,10 +4,10 @@
   "description": "",
   "main": "",
   "scripts": {
-    "test": "npm run build",
-    "start": "node devServer.js",
-    "clean": "rm -rf dist",
-    "build": "npm run clean && webpack --config webpack-prod.config.js"
+    "zhaopin-menhu:clean": "rm -rf dist/zhaopin-menhu",
+    "zhaopin-menhu:test": "npm run zhaopin-menhu:build",
+    "zhaopin-menhu:dev": "",
+    "zhaopin-menhu:build": "npm run zhaopin-menhu:clean && webpack --config src/apps/zhaopin-menhu/webpack-prod.config.js"
   },
   "repository": {
     "type": "git",

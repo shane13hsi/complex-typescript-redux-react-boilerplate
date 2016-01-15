@@ -1,0 +1,6 @@
+{
+  "name": "zhaopin-menhu",
+  "description": "招聘门户",
+  "version": "0.0.1",
+  "main": "./index.jsx"
+}
