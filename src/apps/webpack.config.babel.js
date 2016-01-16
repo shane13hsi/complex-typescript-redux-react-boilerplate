@@ -1,5 +1,6 @@
 import path from 'path';
 import webpack from 'webpack';
+import HtmlWebpackPlugin from 'html-webpack-plugin';
 import { argv } from 'yargs';
 
 if (argv.app === undefined) {
@@ -30,8 +31,7 @@ export default {
 
   output: {
     path: path.join(projectConfig.dist, appName),
-    filename: 'bundle.js',
-    publicPath: '/static'
+    filename: 'bundle.js'
   },
 
   module: {
@@ -56,12 +56,13 @@ export default {
   },
 
   plugins: function() {
+    let plugins = [new HtmlWebpackPlugin({
+      template: path.join(projectConfig.src, 'templates/__default_desktop.html')
+    })];
     if (isHot) {
-      return [
-        new webpack.HotModuleReplacementPlugin(),
-      ]
+      plugins.push(new webpack.HotModuleReplacementPlugin());
     } else {
-      return [];
     }
+    return plugins;
   }()
 };

@@ -2,7 +2,7 @@ import path from 'path';
 import webpack from 'webpack';
 import express from 'express';
 import { argv } from 'yargs';
-import webpackConfig from '../apps/webpack.config';
+import webpackConfig from '../apps/webpack.config.babel';
 import projectConfig from '../../project.config';
 
 if (argv.app === undefined) {
@@ -15,8 +15,7 @@ const server = express();
 const compiler = webpack(webpackConfig);
 
 server.use(require('webpack-dev-middleware')(compiler, {
-  noInfo: true,
-  publicPath: webpackConfig.output.publicPath
+  noInfo: true
 }));
 
 server.use('/assets', express.static(projectConfig.assets));
