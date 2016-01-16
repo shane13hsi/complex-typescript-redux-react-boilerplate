@@ -1,7 +1,5 @@
-"use strict";
-
-module.exports = {
-  'babel': function(option) {
+export default  {
+  'babel'(option) {
     if (option.hot) {
       return {
         test: /\.jsx?$/,
@@ -15,14 +13,14 @@ module.exports = {
       return {test: /\.jsx?$/, loader: 'babel', exclude: /node_modules/};
     }
   },
-  'css-modules': function(option) {
+  'css-modules'(option) {
     return {
       test: /\.css$/,
       include: option.include,
       loader: 'style!css?modules&importLoaders=1&localIdentName=[name]__[local]___[hash:base64:5]!postcss'
     }
   },
-  'css': function(option) {
+  'css'(option) {
     return {
       test: /\.css$/,
       include: option.include,
