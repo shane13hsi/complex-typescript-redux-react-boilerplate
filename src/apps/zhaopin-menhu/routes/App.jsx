@@ -10,7 +10,7 @@ import { createElement } from 'react';
 import { routeNode } from 'react-router5';
 import { Inbox } from './Inbox';
 import { Compose } from './Compose';
-import { NotFound } from 'rill-component/NotFound';
+import { NotFound } from '../../../component-pool/NotFound';
 const components = {
     'inbox': Inbox,
     'compose': Compose

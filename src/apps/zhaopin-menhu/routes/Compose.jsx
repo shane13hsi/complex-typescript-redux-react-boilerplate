@@ -7,7 +7,7 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 };
 import * as React from 'react';
 import { routeNode } from 'react-router5';
-import { Typeahead } from 'rill-component/Typeahead/Typeahead';
+import { Typeahead } from '../../../component-pool/Typeahead/Typeahead';
 export let Compose = class extends React.Component {
     render() {
         return (<div>

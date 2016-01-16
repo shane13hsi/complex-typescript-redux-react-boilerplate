@@ -1,7 +1,7 @@
 /// <reference path="../../../typings/ttsd.d.ts" />
 
 import * as React from 'react';
-import { Component } from 'rill-component/Component';
+import { Component } from '../../component-pool/Component';
 
 export class App extends React.Component<{}, {}> {
 

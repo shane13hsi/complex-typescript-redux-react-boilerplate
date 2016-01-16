@@ -42,7 +42,7 @@ export default {
         include: [
           path.join(projectConfig.apps, appName, 'routes'),
           path.join(projectConfig.apps, appName, 'components'),
-          path.join(projectConfig.src, 'rill-component')
+          path.join(projectConfig.src, 'component-pool')
         ]
       })
     ]
@@ -50,7 +50,7 @@ export default {
 
   resolve: {
     alias: {
-      'rill-component': path.join(projectConfig.src, 'rill-component')
+      'component-pool': path.join(projectConfig.src, 'component-pool')
     },
     extensions: ['', '.js', '.jsx']
   },
