@@ -58,10 +58,19 @@ export default {
   plugins: function() {
     let plugins = [new HtmlWebpackPlugin({
       template: path.join(projectConfig.src, 'templates/__default_desktop.html')
-    })];
+    }),
+      new webpack.optimize.OccurenceOrderPlugin()
+    ];
     if (isHot) {
       plugins.push(new webpack.HotModuleReplacementPlugin());
-    } else {
+    }
+    if (isProd) {
+      plugins.push(new webpack.optimize.UglifyJsPlugin({
+        compressor: {
+          screw_ie8: true,
+          warnings: false
+        }
+      }));
     }
     return plugins;
   }()
