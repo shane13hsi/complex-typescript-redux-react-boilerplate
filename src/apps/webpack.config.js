@@ -1,6 +1,6 @@
 var webpack = require('webpack');
 var H = require('../webpack/webpack-helper.js');
-var projectConfig = require('../../project-config');
+var projectConfig = require('../../project.config');
 
 var path = require('path');
 var argv = require('yargs').argv;
