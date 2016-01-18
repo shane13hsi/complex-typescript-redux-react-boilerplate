@@ -9,7 +9,6 @@ export class Typeahead extends React.Component {
         this.clickButton = this.clickButton.bind(this);
     }
     clickButton() {
-        requestRmoteUrl();
     }
     render() {
         return (<div>
