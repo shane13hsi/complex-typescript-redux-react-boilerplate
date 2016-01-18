@@ -2,7 +2,7 @@
 import { onActions } from 'common/onActions';
 const initialState = {};
 export default onActions({
-    'query enum'(state, action) {
+    queryEnum(state, action) {
         return state;
     }
 }, initialState);
