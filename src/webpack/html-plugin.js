@@ -1,6 +1,4 @@
-// TODO:
-
-"use strict";
+// TODO: 暂时没有需求写 html-plugin, 本来是想根据 m.index.js 中的 m 关键词自动选择 mobile 模板
 
 var fs = require('fs');
 var path = require('path');
