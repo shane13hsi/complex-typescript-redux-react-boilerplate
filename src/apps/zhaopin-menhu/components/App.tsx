@@ -12,7 +12,7 @@ interface IProps {
 
 export class App extends React.Component<IProps, {}> {
   componentDidMount() {
-    this.props.actions.queryEnum();
+    this.props.actions.requestEnum();
   }
 
   public render() {

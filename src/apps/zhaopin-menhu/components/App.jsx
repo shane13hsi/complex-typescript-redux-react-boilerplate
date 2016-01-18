@@ -5,7 +5,7 @@ const cx = classNames.bind(styles);
 import * as React from 'react';
 export class App extends React.Component {
     componentDidMount() {
-        this.props.actions.queryEnum();
+        this.props.actions.requestEnum();
     }
     render() {
         return (<div className={cx('demo')}>

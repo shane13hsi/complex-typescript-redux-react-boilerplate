@@ -4,5 +4,8 @@ const initialState = {};
 export default onActions({
     queryEnum(state, action) {
         return state;
+    },
+    requestEnum(state, action) {
+        return state;
     }
 }, initialState);

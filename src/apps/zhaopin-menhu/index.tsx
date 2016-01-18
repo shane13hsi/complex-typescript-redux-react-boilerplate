@@ -6,30 +6,12 @@ import * as ReactDOM from 'react-dom';
 
 import { Store, createStore } from 'redux';
 import { Provider } from 'react-redux';
-
 import { Router, Route, hashHistory } from 'react-router';
+import { configureStore } from "common/configureStore";
 import { myApp } from './reducers/index';
-
 import { AppContainer } from './containers/AppContainer';
 
-interface IHotModule {
-  hot?: { accept: (path:string, callback:() => void) => void };
-}
-
-declare const module:IHotModule;
-
-function configureStore():Store {
-  const store = createStore(myApp);
-  if (module.hot) {
-    module.hot.accept('./reducers', () => {
-      const nextRootReducer:any = require('./reducers').counterApp;
-      store.replaceReducer(nextRootReducer);
-    });
-  }
-  return store;
-}
-
-const store = configureStore();
+const store = configureStore(myApp);
 
 ReactDOM.render((
   <Provider store={store}>
