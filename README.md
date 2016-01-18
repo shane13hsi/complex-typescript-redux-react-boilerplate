@@ -47,3 +47,28 @@ npm run build -- --app=<app-name>
 ```
 npm run start -- --app=lietou --hot
 ```
+
+## 兼容 IE8
+
+兼容 polyfill:
+
+```
+<!--[if lt IE 9]>
+<script src="/assets/js/vendor/es5-shim.min.js"></script>
+<script src="/assets/js/vendor/es5-sham.min.js"></script>
+<![endif]-->
+```
+
+保留字, 比如: exports, eval. 其中 eval 主要是开发时, 故在开发是不使用 eval (webpack devtools).
+
+exports 使用 [es3ify](https://github.com/spicyj/es3ify), 其做的改变是:
+
+```
+// In
+var x = {class: 2,};
+x.class = [3, 4,];
+
+// Out:
+var x = {"class": 2};
+x["class"] = [3, 4];
+```
