@@ -1,7 +1,7 @@
 export var TYPE;
 (function (TYPE) {
-    TYPE[TYPE["QUERY_ENUM"] = 0] = "QUERY_ENUM";
+    TYPE[TYPE['query enum'] = 0] = 'query enum';
 })(TYPE || (TYPE = {}));
 export function queryEnum() {
-    return { type: TYPE.QUERY_ENUM };
+    return { type: TYPE['query enum'] };
 }

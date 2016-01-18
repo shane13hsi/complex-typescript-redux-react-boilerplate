@@ -2,12 +2,13 @@
 
 import { Reducer } from 'redux';
 import { TYPE } from '../actions/common';
-import { IAction } from '../actions/IAction';
+import { IAction } from 'common/IAction';
 
-export function common(state:any = {}, action:IAction<TYPE>):Reducer {
+export function common(state:any = {}, action:IAction):Reducer {
   const { type } = action;
   switch (type) {
-    case TYPE.QUERY_ENUM:
+    case TYPE['query enum']:
+      console.log(1);
       return state;
     default:
       return state;
