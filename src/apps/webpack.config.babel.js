@@ -55,7 +55,8 @@ export default {
 
   resolve: {
     alias: {
-      'component-pool': path.join(projectConfig.src, 'component-pool')
+      'component-pool': path.join(projectConfig.src, 'component-pool'),
+      'common': path.join(projectConfig.src, 'common')
     },
     extensions: ['', '.js', '.jsx']
   },
