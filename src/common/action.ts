@@ -4,7 +4,7 @@ function identity(t) {
   return t;
 }
 
-export function createAction(type:string, actionCreator?:any):(...args:any[]) => IAction {
+export function action(type:string, actionCreator?:any):(...args:any[]) => IAction {
   const finalActionCreator = typeof actionCreator === 'function'
     ? actionCreator
     : identity;

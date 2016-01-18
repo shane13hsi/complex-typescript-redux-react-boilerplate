@@ -1,7 +1,7 @@
 function identity(t) {
     return t;
 }
-export function createAction(type, actionCreator) {
+export function action(type, actionCreator) {
     const finalActionCreator = typeof actionCreator === 'function'
         ? actionCreator
         : identity;
