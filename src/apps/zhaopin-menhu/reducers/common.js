@@ -6,7 +6,7 @@ export default onActions({
         return state;
     },
     requestEnum(state, action) {
-        console.log(action.code);
+        console.log(action);
         return state;
     }
 }, initialState);
