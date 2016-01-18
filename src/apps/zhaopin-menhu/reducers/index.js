@@ -1,5 +1,6 @@
 import { combineReducers } from 'redux';
 import common from './common';
-export const myApp = combineReducers({
+const myApp = combineReducers({
     common
 });
+export default myApp;

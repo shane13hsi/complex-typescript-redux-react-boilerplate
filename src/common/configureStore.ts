@@ -7,13 +7,10 @@ interface IHotModule {
 
 declare const module:IHotModule;
 
-export function configureStore(reducer:Reducer):Store {
+export function configureStore(reducer:Reducer, hotReducerFn:(store:Store, module:IHotModule) => any):Store {
   const store = applyMiddleware(thunk)(createStore)(reducer);
   if (module.hot) {
-    module.hot.accept('./reducers', () => {
-      const nextRootReducer:any = require('./reducers').counterApp;
-      store.replaceReducer(nextRootReducer);
-    });
+    hotReducerFn(store, module);
   }
   return store;
 }

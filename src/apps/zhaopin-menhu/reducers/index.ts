@@ -1,6 +1,8 @@
 import { Reducer, combineReducers } from 'redux';
 import common from './common';
 
-export const myApp:Reducer = combineReducers({
+const myApp:Reducer = combineReducers({
   common
 });
+
+export default myApp;

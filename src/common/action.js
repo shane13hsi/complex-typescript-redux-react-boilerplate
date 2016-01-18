@@ -6,10 +6,9 @@ export function action(type, actionCreator) {
         ? actionCreator
         : identity;
     return (...args) => {
-        const action = {
+        return {
             type,
             payload: finalActionCreator(...args)
         };
-        return action;
     };
 }

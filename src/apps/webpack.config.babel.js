@@ -58,6 +58,7 @@ export default {
       'component-pool': path.join(projectConfig.src, 'component-pool'),
       'common': path.join(projectConfig.src, 'common')
     },
+    root: [path.join(projectConfig.apps, appName)],
     extensions: ['', '.js', '.jsx']
   },
 

@@ -4,10 +4,21 @@ var React = require('react');
 import * as ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
 import { Router, Route, hashHistory } from 'react-router';
-import { configureStore } from "common/configureStore";
-import { myApp } from './reducers/index';
+import { createStore, applyMiddleware } from 'redux';
+import thunk from 'redux-thunk';
+import rootReducer from './reducers/index';
 import { AppContainer } from './containers/AppContainer';
-const store = configureStore(myApp);
+function configureStore() {
+    const store = applyMiddleware(thunk)(createStore)(rootReducer);
+    if (module.hot) {
+        module.hot.accept('./reducers', () => {
+            const nextRootReducer = require('./reducers').default;
+            store.replaceReducer(nextRootReducer);
+        });
+    }
+    return store;
+}
+const store = configureStore();
 ReactDOM.render((<Provider store={store}>
     <Router history={hashHistory}>
       <Route path="/" component={AppContainer}>

@@ -10,10 +10,9 @@ export function action(type:string, actionCreator?:any):(...args:any[]) => IActi
     : identity;
 
   return (...args) => {
-    const action = {
+    return {
       type,
       payload: finalActionCreator(...args)
     };
-    return action;
   }
 }
