@@ -72,7 +72,7 @@ npm run start -- --app=lietou --hot
 <![endif]-->
 ```
 
-保留字, 比如: exports, eval. 其中 eval 主要是开发时, 故在开发是不使用 eval (webpack devtools).
+保留字, 比如: default, eval. 其中 eval 主要是开发时, 故在开发是不使用 eval (webpack devtools).
 
 exports 使用 [es3ify](https://github.com/spicyj/es3ify), 其做的改变是:
 
@@ -85,3 +85,5 @@ x.class = [3, 4,];
 var x = {"class": 2};
 x["class"] = [3, 4];
 ```
+
+这样看来, 为了兼容 IE8 的代价很少, polyfill 只在 IE9- 引用, 保留字 default 只是写法上的区别.
