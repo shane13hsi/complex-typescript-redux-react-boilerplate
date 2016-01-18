@@ -10,7 +10,7 @@ import { Provider } from 'react-redux';
 import { Router, Route, hashHistory } from 'react-router';
 import { myApp } from './reducers/index';
 
-import { App } from './routes/App';
+import { AppContainer } from './containers/AppContainer';
 
 interface IHotModule {
   hot?: { accept: (path:string, callback:() => void) => void };
@@ -34,7 +34,7 @@ const store = configureStore();
 ReactDOM.render((
   <Provider store={store}>
     <Router history={hashHistory}>
-      <Route path="/" component={App}>
+      <Route path="/" component={AppContainer}>
       </Route>
     </Router>
   </Provider>

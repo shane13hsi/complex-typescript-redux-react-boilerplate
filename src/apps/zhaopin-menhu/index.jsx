@@ -6,7 +6,7 @@ import { createStore } from 'redux';
 import { Provider } from 'react-redux';
 import { Router, Route, hashHistory } from 'react-router';
 import { myApp } from './reducers/index';
-import { App } from './routes/App';
+import { AppContainer } from './containers/AppContainer';
 function configureStore() {
     const store = createStore(myApp);
     if (module.hot) {
@@ -20,7 +20,7 @@ function configureStore() {
 const store = configureStore();
 ReactDOM.render((<Provider store={store}>
     <Router history={hashHistory}>
-      <Route path="/" component={App}>
+      <Route path="/" component={AppContainer}>
       </Route>
     </Router>
   </Provider>), document.getElementById('__REACT__'));
