@@ -1,16 +1,12 @@
 /// <reference path="../../../../typings/ttsd.d.ts" />
 
 import { Reducer } from 'redux';
-import { TYPE } from '../actions/common';
-import { IAction } from 'common/IAction';
+import { onActions } from 'common/onActions';
 
-export function common(state:any = {}, action:IAction):Reducer {
-  const { type } = action;
-  switch (type) {
-    case TYPE['query enum']:
-      console.log(1);
-      return state;
-    default:
-      return state;
+const initialState = {};
+
+export default onActions({
+  'query enum' (state, action) {
+    return state;
   }
-}
+}, initialState)

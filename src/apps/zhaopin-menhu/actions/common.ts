@@ -1,8 +1,4 @@
 /// <reference path="../../../../typings/ttsd.d.ts" />
-import { IAction } from 'common/IAction';
+import { createAction } from 'common/createAction';
 
-export enum TYPE { 'query enum' }
-
-export function queryEnum():IAction {
-  return {type: TYPE['query enum']};
-}
+export const queryEnum = createAction('query enum');

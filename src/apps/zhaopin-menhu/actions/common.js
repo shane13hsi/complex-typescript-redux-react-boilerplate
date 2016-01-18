@@ -1,7 +1,2 @@
-export var TYPE;
-(function (TYPE) {
-    TYPE[TYPE['query enum'] = 0] = 'query enum';
-})(TYPE || (TYPE = {}));
-export function queryEnum() {
-    return { type: TYPE['query enum'] };
-}
+import { createAction } from 'common/createAction';
+export const queryEnum = createAction('query enum');
