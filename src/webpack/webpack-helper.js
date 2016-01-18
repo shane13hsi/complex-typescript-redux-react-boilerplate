@@ -4,6 +4,7 @@ export default  {
       return {
         test: /\.jsx?$/,
         loader: 'babel',
+        // 即使使用 es3ify, 也无法 transform hmre 里面的 exports.default, 所以无法兼容
         query: {
           "presets": ["react-hmre"]
         },

@@ -16,7 +16,11 @@ const isProd = process.env.NODE_ENV === 'production';
 const isHot = argv.hot !== undefined;
 
 export default {
-  devtool: isProd ? false : 'source-map',
+  devtool: function() {
+    if (isProd) return false;
+    if (isHot) return 'eval'; // 注意: 为了兼容 IE8, 不要使用 eval, eval 仅在 Hot 开发模式, 在 Chrome 等浏览器使用
+    return 'source-map';
+  }(),
 
   entry: function() {
     const entryPath = path.join(projectConfig.apps, appName, 'index');
