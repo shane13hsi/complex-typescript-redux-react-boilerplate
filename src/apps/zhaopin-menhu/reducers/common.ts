@@ -10,6 +10,7 @@ export default onActions({
     return state;
   },
   requestEnum(state, action) {
+    console.log(action);
     return state;
   }
 }, initialState)

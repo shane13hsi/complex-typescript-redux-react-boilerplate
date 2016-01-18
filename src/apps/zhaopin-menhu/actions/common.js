@@ -5,7 +5,7 @@ export function requestEnum() {
     return (dispatch) => {
         request.get('/zhaopin-menhu/common')
             .end((err, res) => {
-            dispatch(createAction('requestEnum')());
+            dispatch(createAction('requestEnum')(res.body));
         });
     };
 }
