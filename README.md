@@ -4,6 +4,12 @@
 npm install
 ```
 
+如果没有安装 TypeScript, 安装:
+
+```
+npm install -g typescript
+```
+
 如果没有安装 d.ts 则运行:
 
 ```
@@ -34,6 +40,12 @@ tsc --watch
 
 ```
 npm run start -- --app=<app-name> --hot
+```
+
+当然你也可以不使用 `--hot`, 主要是在兼容 IE8.
+
+```
+npm run start -- --app=<app-name>
 ```
 
 ### 编译
