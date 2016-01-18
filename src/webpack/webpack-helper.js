@@ -10,7 +10,7 @@ export default  {
         exclude: /node_modules/
       };
     } else {
-      return {test: /\.jsx?$/, loader: 'babel', exclude: /node_modules/};
+      return {test: /\.jsx?$/, loaders: ['es3ify-loader', 'babel'], exclude: /node_modules/};
     }
   },
   'css-modules'(option) {

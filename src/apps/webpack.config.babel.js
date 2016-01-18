@@ -16,13 +16,14 @@ const isProd = process.env.NODE_ENV === 'production';
 const isHot = argv.hot !== undefined;
 
 export default {
-  devtool: isProd ? false : 'eval',
+  devtool: isProd ? false : 'source-map',
 
   entry: function() {
     const entryPath = path.join(projectConfig.apps, appName, 'index');
     if (isHot) {
       return [
-        'webpack-hot-middleware/client', entryPath
+        'webpack-hot-middleware/client',
+        entryPath
       ];
     } else {
       return entryPath;
