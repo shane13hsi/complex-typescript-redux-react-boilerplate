@@ -19,7 +19,7 @@ export default {
   devtool: isProd ? false : 'eval',
 
   entry: function() {
-    const entryPath = path.join(projectConfig.apps, appName, 'index.jsx');
+    const entryPath = path.join(projectConfig.apps, appName, 'index');
     if (isHot) {
       return [
         'webpack-hot-middleware/client', entryPath
