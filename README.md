@@ -143,6 +143,8 @@ module.exports = function(app) {
 };
 ```
 
+以上.
+
 ## 兼容 IE8
 
 兼容 polyfill:
