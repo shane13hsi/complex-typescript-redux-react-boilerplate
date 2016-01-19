@@ -42,7 +42,7 @@ export default {
   module: {
     loaders: [
       H['babel']({hot: isHot}),
-      H['css']({include: path.join(projectConfig.apps, appName, 'styles')}),
+      H['css']({include: path.join(projectConfig.apps, appName, 'global-styles')}),
       H['css-modules']({
         include: [
           path.join(projectConfig.apps, appName, 'routes'),

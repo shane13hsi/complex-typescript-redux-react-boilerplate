@@ -1,15 +1,14 @@
 /// <reference path="../../../typings/ttsd.d.ts" />
 
-require('./styles/global.css');
+require('./global-styles/global.css');
 var React = require('react');
 import * as ReactDOM from 'react-dom';
 
 import { Provider } from 'react-redux';
 import { Router, Route, hashHistory } from 'react-router';
 
-import rootReducer from './reducers/index';
-import { AppContainer } from './containers/AppContainer';
 import { configureStore } from './configureStore';
+import { AppContainer } from './containers/AppContainer';
 
 ReactDOM.render((
   <Provider store={configureStore()}>
