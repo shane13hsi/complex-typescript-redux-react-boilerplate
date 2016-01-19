@@ -93,7 +93,7 @@ export function requestEnum() {
 }
 ```
 
-- `<app-name>/reducers`
+`<app-name>/reducers`
 
 ```js
 import { Reducer } from 'redux';
@@ -112,7 +112,7 @@ export default onActions({
 }, initialState)
 ```
 
-- `<app-name>/containers` 
+`<app-name>/containers` 
 
 ```js
 import * as React from 'react';
@@ -133,7 +133,7 @@ export class AppContainer extends React.Component<any, {}> {
 }
 ```
 
-- `<app-name>/mock` - mock 数据
+`<app-name>/mock` - mock 数据
 
 ```js
 module.exports = function(app) {
