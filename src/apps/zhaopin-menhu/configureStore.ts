@@ -2,7 +2,7 @@
 
 import { Reducer, Store, createStore, applyMiddleware } from 'redux';
 import thunk from 'redux-thunk';
-import rootReducer from './reducers/index';
+import rootReducer from 'reducers/index';
 import { IHotModule } from "common/IHotModule";
 
 declare const module:IHotModule;

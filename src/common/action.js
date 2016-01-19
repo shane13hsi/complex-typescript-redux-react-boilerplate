@@ -1,3 +1,4 @@
+/// <reference path="../../typings/ttsd.d.ts" />
 function identity(t) {
     return t;
 }

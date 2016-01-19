@@ -8,8 +8,8 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 import * as React from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
-import * as CommonActions from '../actions/common';
-import { App } from '../components/App';
+import * as CommonActions from 'actions/common';
+import { App } from 'components/App';
 export let AppContainer = class extends React.Component {
     render() {
         const { dispatch } = this.props;

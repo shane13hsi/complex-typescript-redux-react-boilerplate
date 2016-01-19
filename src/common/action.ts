@@ -1,3 +1,5 @@
+/// <reference path="../../typings/ttsd.d.ts" />
+
 import { IAction } from './IAction';
 
 function identity(t) {
