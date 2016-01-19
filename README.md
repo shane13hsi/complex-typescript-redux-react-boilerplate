@@ -61,6 +61,88 @@ npm run build -- --app=<app-name>
 npm run start -- --app=lietou --hot
 ```
 
+## 开发流程
+
+### dumb component 开发
+
+路径: `<app-name>/components`
+
+文件:
+
+`Component.tsx`
+`Component.css`
+
+### redux 相关开发
+
+`<app-name>/actions`
+
+```js
+import { action } from 'common/action';
+
+import * as request from 'superagent';
+
+export const queryEnum = action('queryEnum');
+
+export function requestEnum() {
+  return (dispatch) => {
+    request.get('/zhaopin-menhu/common')
+      .end((err, res) => {
+        dispatch(action('requestEnum')(res.body));
+      });
+  };
+}
+```
+
+- `<app-name>/reducers`
+
+```js
+import { Reducer } from 'redux';
+import { onActions } from 'common/onActions';
+
+const initialState = {};
+
+export default onActions({
+  queryEnum(state, action) {
+    return state;
+  },
+  requestEnum(state, action) {
+    console.log(action);
+    return state;
+  }
+}, initialState)
+```
+
+- `<app-name>/containers` 
+
+```js
+import * as React from 'react';
+import { bindActionCreators, Dispatch } from 'redux';
+import { connect } from 'react-redux';
+
+import * as CommonActions from 'actions/common';
+import { App } from 'components/App';
+
+@connect(state => state.common)
+export class AppContainer extends React.Component<any, {}> {
+  render() {
+    const { dispatch } = this.props;
+    const actions = bindActionCreators(CommonActions, dispatch);
+    return <App actions={actions}>App</App>;
+  }
+
+}
+```
+
+- `<app-name>/mock` - mock 数据
+
+```js
+module.exports = function(app) {
+  app.get('/zhaopin-menhu/common', function(req, res) {
+    res.json(require('./common.json'));
+  });
+};
+```
+
 ## 兼容 IE8
 
 兼容 polyfill:
